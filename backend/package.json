@@ -1,11 +1,24 @@
 {
   "name": "book_store_fullstack_project",
   "version": "1.0.0",
+  "type": "module",
   "description": "A book store full-stack project is a comprehensive software development endeavor that involves creating a web application or system for managing the operations of a bookstore. This project typically covers both the front-end (client-side) and back-end (server-side) components, providing a complete solution for the management and sale of books.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "author": "oti-david-chibueze",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "joi": "^17.11.0",
+    "mongoose": "^7.6.3",
+    "winston": "^3.11.0"
+  }
 }
