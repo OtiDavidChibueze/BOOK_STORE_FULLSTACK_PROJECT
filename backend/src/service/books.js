@@ -23,7 +23,7 @@ class BookService {
         return {
           statusCode: 200,
           message: "fetched all books",
-          data: { publishBooks: books, count },
+          data: { books, count },
         };
       }
     } catch (error) {
@@ -47,7 +47,7 @@ class BookService {
         return {
           statusCode: 200,
           message: "fetched successfully",
-          data: { book },
+          data: book,
         };
       }
     } catch (error) {

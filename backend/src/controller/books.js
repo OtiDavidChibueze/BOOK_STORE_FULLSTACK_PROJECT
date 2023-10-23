@@ -11,7 +11,7 @@ class BookController {
     try {
       const response = await BookService.getBooks();
 
-      if (response.statusCode == 409) {
+      if (response.statusCode == 409 || response.statusCode == 404) {
         return ResponseHelper.errorResponse(
           res,
           response.statusCode,
@@ -44,7 +44,7 @@ class BookController {
     try {
       const response = await BookService.getABookById(req.params.id);
 
-      if (response.statusCode == 409) {
+      if (response.statusCode == 409 || response.statusCode == 404) {
         return ResponseHelper.errorResponse(
           res,
           response.statusCode,
@@ -113,7 +113,7 @@ class BookController {
         req.body
       );
 
-      if (response.statusCode == 409) {
+      if (response.statusCode == 409 || response.statusCode == 404) {
         return ResponseHelper.errorResponse(
           res,
           response.statusCode,
@@ -146,7 +146,7 @@ class BookController {
     try {
       const response = await BookService.deleteABookById(req.params.id);
 
-      if (response.statusCode == 409) {
+      if (response.statusCode == 409 || response.statusCode == 404) {
         return ResponseHelper.errorResponse(
           res,
           response.statusCode,
