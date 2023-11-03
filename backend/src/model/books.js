@@ -6,18 +6,13 @@ var bookSchema = new mongoose.Schema(
     author: {
       type: String,
       index: true,
-      trim: true,
     },
     title: {
       type: String,
       index: true,
-      trim: true,
     },
-    publishYear: {
+    yearReleased: {
       type: Number,
-      default: function () {
-        return new Date().getFullYear();
-      },
     },
   },
   { timestamps: true }
