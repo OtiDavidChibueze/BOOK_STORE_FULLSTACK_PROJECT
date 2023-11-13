@@ -10,10 +10,15 @@ const books = joi.object({
     "string.empty": "Please enter the book title",
     "any.required": "The book title is required",
   }),
-  yearReleased: joi.number().required().messages({
-    "string.empty": "Please enter the book publish year",
-    "any.required": "Book publish year is required",
-  }).min(4),
+  bookContent: joi.string().min(0).required(),
+  yearReleased: joi
+    .number()
+    .required()
+    .messages({
+      "string.empty": "Please enter the book publish year",
+      "any.required": "Book publish year is required",
+    })
+    .min(4),
 });
 
 export { books };

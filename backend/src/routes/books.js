@@ -6,6 +6,7 @@ import BookController from "../controller/books.js";
 
 route.get("/", BookController.getBooks);
 route.get("/:id", BookController.getABookById);
+route.get("/content/:id", BookController.bookContent);
 
 route.post(
   "/publish",
