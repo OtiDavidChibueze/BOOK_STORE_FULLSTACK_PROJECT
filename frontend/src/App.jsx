@@ -5,6 +5,7 @@ import ShowBook from "./components/pages/ShowBook/ShowBook";
 import EditBook from "./components/pages/EditBook/EditBook";
 import CreateBook from "./components/pages/CreateBook/CreateBook";
 import DeleteBook from "./components/pages/DeleteBook/DeleteBook";
+import BookContent from "./components/BookContent/BookContent";
 
 const App = () => {
   return (
@@ -21,6 +22,12 @@ const App = () => {
         path="/api/v1/books/edit/:id"
         element={<EditBook />}
       />
+
+      <Route
+        path="/api/v1/books/content/:id"
+        element={<BookContent />}
+      />
+
       <Route
         path="/api/v1/books/create"
         element={<CreateBook />}
