@@ -11,9 +11,6 @@ var bookSchema = new mongoose.Schema(
       type: String,
       index: true,
     },
-    bookContent: {
-      type: String,
-    },
     yearReleased: {
       type: Number,
     },

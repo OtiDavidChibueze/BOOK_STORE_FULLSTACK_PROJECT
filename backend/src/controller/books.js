@@ -169,38 +169,6 @@ class BookController {
       );
     }
   }
-
-  static async bookContent(req, res) {
-    try {
-      const response = await BookService.bookContent(req.params.id);
-
-      if (response.statusCode == 409 || response.statusCode == 404)
-        return ResponseHelper.errorResponse(
-          res,
-          response.statusCode,
-          response.message,
-          response.data
-        );
-
-      logger.info(
-        `BookController_bookContent -> ${JSON.stringify(response.data)}`
-      );
-
-      return ResponseHelper.successResponse(
-        res,
-        response.statusCode,
-        response.message,
-        response.data
-      );
-    } catch (error) {
-      logger.error(`BookController_bookContent-> Error: ${error.message}`);
-      return ResponseHelper.errorResponse(
-        res,
-        500,
-        "Oops something went wrong!"
-      );
-    }
-  }
 }
 
 export default BookController;

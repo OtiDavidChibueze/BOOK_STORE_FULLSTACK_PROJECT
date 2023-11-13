@@ -43,7 +43,7 @@ class BookService {
   }
 
   static async publishBook(data) {
-    const { author, title, yearReleased, bookContent } = data;
+    const { author, title, yearReleased, content } = data;
 
     const publishBook = await BookRepository.addANewBook(data);
 
@@ -57,7 +57,7 @@ class BookService {
   static async updateABookById(bookId, data) {
     HelperFunction.mongooseIdValidation(bookId);
 
-    const { author, title, yearReleased, bookContent } = data;
+    const { author, title, yearReleased, content } = data;
 
     const updateBook = await BookRepository.updateTheBook(bookId, data);
 
@@ -90,24 +90,6 @@ class BookService {
       message: "book deleted successfully",
       data: { title: book.title },
     };
-  }
-
-  static async bookContent(id) {
-    HelperFunction.mongooseIdValidation(id);
-
-    const book = await BookRepository.fetchBookWithTheProvidedId(id);
-
-    const response = !book
-      ? { statusCode: 404, message: "book with the provided id not found" }
-      : !book.bookContent.trim()
-      ? { statusCode: 200, message: "sorry! book is empty" }
-      : {
-          statusCode: 200,
-          message: "fetched book content",
-          data: book.bookContent,
-        };
-
-    return response;
   }
 }
 
